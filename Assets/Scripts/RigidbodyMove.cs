@@ -28,7 +28,7 @@ public class RigidbodyMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
         {
-            myRB.AddForce(Vector3.up * 10, ForceMode.Impulse);
+            myRB.AddForce(Vector3.up * 5, ForceMode.Impulse);
             //speed = 0f;
             grounded = false;
         }
