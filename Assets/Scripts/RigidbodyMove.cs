@@ -40,6 +40,10 @@ public class RigidbodyMove : MonoBehaviour
         {
             myRB.velocity = myInput * speed;
         }
+        else
+        {
+            myRB.velocity = new Vector3(myInput.x * speed, myRB.velocity.y, myInput.z * speed);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
