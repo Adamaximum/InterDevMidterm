@@ -9,13 +9,9 @@ public class PickUpThrow : MonoBehaviour
 
     public bool held;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float heldDistX = -0.9f;
+    public float heldDistY = 0.3f;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -34,7 +30,7 @@ public class PickUpThrow : MonoBehaviour
 
         if (held)
         {
-            dodgeball.transform.position = gameObject.transform.position + new Vector3(-0.7f, 0.3f, 0);
+            dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
             dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
             if (Input.GetMouseButtonDown(0))
@@ -42,8 +38,6 @@ public class PickUpThrow : MonoBehaviour
                 held = false;
                 dodgeball.GetComponent<Rigidbody>().isKinematic = false;
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500);
-
-                Debug.Log("Throw!");
             }
         }
     }
