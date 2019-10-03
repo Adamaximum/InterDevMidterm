@@ -29,7 +29,6 @@ public class RigidbodyMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
         {
             myRB.AddForce(Vector3.up * 5, ForceMode.Impulse);
-            //speed = 0f;
             grounded = false;
         }
     }
@@ -51,7 +50,14 @@ public class RigidbodyMove : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
-            //speed = 10f;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            grounded = false;
         }
     }
 }
