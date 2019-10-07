@@ -12,6 +12,8 @@ public class PickUpThrow : MonoBehaviour
     public float heldDistX = -0.9f;
     public float heldDistY = 0.3f;
 
+    public int charge = 100;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -33,11 +35,17 @@ public class PickUpThrow : MonoBehaviour
             dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
             dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0) && charge < 700)
+            {
+                charge += 5;
+            }
+
+            if (Input.GetMouseButtonUp(0))
             {
                 held = false;
                 dodgeball.GetComponent<Rigidbody>().isKinematic = false;
-                dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * 500);
+                dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge);
+                charge = 100;
             }
         }
     }

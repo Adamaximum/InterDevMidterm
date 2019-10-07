@@ -1042,8 +1042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dodgeball: {fileID: 0}
   held: 0
-  heldDistX: -0.9
-  heldDistY: 0.3
+  heldDistX: 0
+  heldDistY: 1.4
 --- !u!1 &1641797101
 GameObject:
   m_ObjectHideFlags: 0
