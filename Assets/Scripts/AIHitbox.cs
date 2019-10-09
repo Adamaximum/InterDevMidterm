@@ -13,6 +13,8 @@ public class AIHitbox : MonoBehaviour
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        label = GameObject.Find("Feed").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

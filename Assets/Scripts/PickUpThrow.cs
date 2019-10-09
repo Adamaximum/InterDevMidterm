@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 // Credit goes to Frank for most of this code.
 public class PickUpThrow : MonoBehaviour
@@ -16,13 +18,24 @@ public class PickUpThrow : MonoBehaviour
 
     public int charge = 100;
 
+    public TextMeshProUGUI throwPow;
+
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        throwPow = GameObject.Find("ThrowPower").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
+        throwPow.text = "Throw Power: " + charge;
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (!held)
@@ -41,8 +54,8 @@ public class PickUpThrow : MonoBehaviour
         {
             dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
             dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-
-            gm.live[0] = true;
+            
+                gm.live[0] = true;
 
             if (Input.GetMouseButton(0) && charge < 700)
             {
@@ -54,6 +67,7 @@ public class PickUpThrow : MonoBehaviour
                 held = false;
                 dodgeball.GetComponent<Rigidbody>().isKinematic = false;
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge);
+                dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
                 charge = 100;
             }
         }
