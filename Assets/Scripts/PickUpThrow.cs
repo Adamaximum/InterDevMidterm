@@ -5,6 +5,8 @@ using UnityEngine;
 // Credit goes to Frank for most of this code.
 public class PickUpThrow : MonoBehaviour
 {
+    public GameManager gm;
+
     public GameObject dodgeball;
 
     public bool held;
@@ -13,6 +15,11 @@ public class PickUpThrow : MonoBehaviour
     public float heldDistY = 0.3f;
 
     public int charge = 100;
+
+    void Start()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     void Update()
     {
@@ -34,6 +41,8 @@ public class PickUpThrow : MonoBehaviour
         {
             dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
             dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+
+            gm.live[0] = true;
 
             if (Input.GetMouseButton(0) && charge < 700)
             {

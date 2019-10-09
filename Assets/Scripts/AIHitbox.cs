@@ -5,12 +5,14 @@ using TMPro;
 
 public class AIHitbox : MonoBehaviour
 {
+    public GameManager gm;
+
     public TextMeshProUGUI label;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -23,15 +25,18 @@ public class AIHitbox : MonoBehaviour
     {
         if (collision.gameObject.tag == "Dodgeball")
         {
-            if (gameObject.tag == "Body")
+            if (gm.live[0])
             {
-                Debug.Log("Target is out!");
-                label.text = "Target is out!";
-            }
-            if (gameObject.tag == "Head")
-            {
-                Debug.Log("Headshot! You are out!");
-                label.text = "Headshot! You are out!";
+                if (gameObject.tag == "Body")
+                {
+                    Debug.Log("Target is out!");
+                    label.text = "Target is out!";
+                }
+                if (gameObject.tag == "Head")
+                {
+                    Debug.Log("Headshot! You are out!");
+                    label.text = "Headshot! You are out!";
+                }
             }
         }
     }
