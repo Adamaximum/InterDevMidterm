@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AIHitbox : MonoBehaviour
 {
-    //public GameObject body;
-    //public GameObject head;
+    public TextMeshProUGUI label;
 
     // Start is called before the first frame update
     void Start()
     {
-        //body = GetComponent<GameObject>();
-        //head = GetComponentInChildren<GameObject>();
+        
     }
 
     // Update is called once per frame
@@ -27,10 +26,12 @@ public class AIHitbox : MonoBehaviour
             if (gameObject.tag == "Body")
             {
                 Debug.Log("Target is out!");
+                label.text = "Target is out!";
             }
-            if (gameObject.name == "Head")
+            if (gameObject.tag == "Head")
             {
                 Debug.Log("Headshot! You are out!");
+                label.text = "Headshot! You are out!";
             }
         }
     }
