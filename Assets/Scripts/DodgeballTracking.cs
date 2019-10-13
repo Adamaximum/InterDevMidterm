@@ -6,6 +6,8 @@ public class DodgeballTracking : MonoBehaviour
 {
     public GameManager gm;
 
+    public bool onSide;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +17,14 @@ public class DodgeballTracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(transform.position.z < 0)
+        {
+            onSide = true;
+        }
+        else
+        {
+            onSide = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
