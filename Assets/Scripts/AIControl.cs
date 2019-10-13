@@ -36,52 +36,43 @@ public class AIControl : MonoBehaviour
             pickUpTimer = 0;
             if (!held)
             {
-                //dodgeball.GetComponent<Rigidbody>().isKinematic = true;
+                for (int i = 0; i < 6; i++)
+                {
+                    if (gm.onSide[i] == false)
+                    {
+                        dodgeball = GameObject.Find("Dodgeball (" + i + ")").transform.gameObject;
+                    }
+                }
+
+                dodgeball.GetComponent<Rigidbody>().isKinematic = true;
                 held = true;
                 Debug.Log("Pick it up!");
+
+                charge = Random.Range(100, 500);
             }
             else
             {
-                //dodgeball.GetComponent<Rigidbody>().isKinematic = false;
                 held = false;
+                Debug.Log("Throw it!");
+                dodgeball.GetComponent<Rigidbody>().isKinematic = false;
+                dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge);
+                dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
             }
         }
 
-        //if (held)
-        //{
-        //    dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
-        //    dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
+        if (held)
+        {
+            dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
+            dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-        //    for (int i = 0; i < 6; i++)
-        //    {
-        //        if (dodgeball.name == "Dodgeball (" + i + ")")
-        //        {
-        //            gm.live[i] = true;
-        //        }
-        //    }
-
-        //    if (Input.GetMouseButton(0) && charge < 700)
-        //    {
-        //        charge += 5;
-        //    }
-
-        //    if (Input.GetMouseButtonUp(0))
-        //    {
-        //        held = false;
-        //        dodgeball.GetComponent<Rigidbody>().isKinematic = false;
-        //        dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge);
-        //        dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
-        //        charge = 100;
-        //    }
-        //}
-
-        //for (int i = 0; i < 6; i++)
-        //{
-        //    if (dodgeball.name == "Dodgeball (" + i + ")")
-        //    {
-        //        gm.onSide[i] = true;
-        //    }
-        //}
+            for (int i = 0; i < 6; i++)
+            {
+                if (dodgeball.name == "Dodgeball (" + i + ")")
+                {
+                    gm.live[i] = true;
+                }
+            }
+        }
     }
 
     //private void OnTriggerStay(Collider other)

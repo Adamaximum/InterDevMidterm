@@ -1401,8 +1401,8 @@ MonoBehaviour:
   gm: {fileID: 0}
   dodgeball: {fileID: 0}
   held: 0
-  heldDistX: -0.9
-  heldDistY: 0.3
+  heldDistX: 0
+  heldDistY: 2.2
   charge: 100
   pickUpTimer: 5
   decisionTime: 0
