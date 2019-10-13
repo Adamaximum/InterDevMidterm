@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public string[] lastHeldBy;
+
     public bool[] live;
     public bool[] onSide;
 

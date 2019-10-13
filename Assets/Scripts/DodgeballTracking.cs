@@ -39,6 +39,7 @@ public class DodgeballTracking : MonoBehaviour
             {
                 if (gameObject.name == "Dodgeball (" + i + ")")
                 {
+                    gm.lastHeldBy[i] = "None";
                     gm.live[i] = false;
                 }
             }

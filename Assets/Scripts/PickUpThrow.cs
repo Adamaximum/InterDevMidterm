@@ -59,6 +59,7 @@ public class PickUpThrow : MonoBehaviour
             {
                 if (dodgeball.name == "Dodgeball (" + i + ")")
                 {
+                    gm.lastHeldBy[i] = "Player";
                     gm.live[i] = true;
                 }
             }

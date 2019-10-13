@@ -568,6 +568,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b4690b5e12d1c409a0263afefc21f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastHeldBy:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   live: 000000000000
   onSide: 000000000000
 --- !u!4 &537011714
@@ -1399,11 +1406,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  playerTR: {fileID: 0}
   dodgeball: {fileID: 0}
   held: 0
   heldDistX: 0
-  heldDistY: 2.2
+  heldDistY: 1.5
   charge: 100
+  timerMax: 5
   pickUpTimer: 5
   decisionTime: 0
 --- !u!1 &963194225
