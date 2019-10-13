@@ -359,7 +359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  onSide: 0
 --- !u!54 &209896659
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -569,7 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b4690b5e12d1c409a0263afefc21f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  live: 0000000000000000
+  live: 000000000000
+  onSide: 000000000000
 --- !u!4 &537011714
 Transform:
   m_ObjectHideFlags: 0
@@ -1863,7 +1863,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  onSide: 0
 --- !u!54 &1294847854
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2561,7 +2560,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  onSide: 0
 --- !u!54 &1585543868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2887,7 +2885,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  onSide: 0
 --- !u!1 &1727378454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,7 +2970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  onSide: 0
 --- !u!54 &1730709706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3618,7 +3614,7 @@ GameObject:
   - component: {fileID: 3791351122870055815}
   - component: {fileID: 3791351122870055817}
   m_Layer: 0
-  m_Name: Dodgeball
+  m_Name: Dodgeball (0)
   m_TagString: Dodgeball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3666,4 +3662,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
-  onSide: 0

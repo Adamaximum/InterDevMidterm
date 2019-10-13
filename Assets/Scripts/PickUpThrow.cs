@@ -55,7 +55,13 @@ public class PickUpThrow : MonoBehaviour
             dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
             dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
             
-                gm.live[0] = true;
+            for(int i = 0; i < 6; i++)
+            {
+                if (dodgeball.name == "Dodgeball (" + i + ")")
+                {
+                    gm.live[i] = true;
+                }
+            }
 
             if (Input.GetMouseButton(0) && charge < 700)
             {

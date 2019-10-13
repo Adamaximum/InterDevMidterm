@@ -27,17 +27,20 @@ public class AIHitbox : MonoBehaviour
     {
         if (collision.gameObject.tag == "Dodgeball")
         {
-            if (gm.live[0])
+            for (int i = 0; i < 6; i++)
             {
-                if (gameObject.tag == "Body")
+                if (gm.live[i])
                 {
-                    Debug.Log("Target is out!");
-                    label.text = "Target is out!";
-                }
-                if (gameObject.tag == "Head")
-                {
-                    Debug.Log("Headshot! You are out!");
-                    label.text = "Headshot! You are out!";
+                    if (gameObject.tag == "Body")
+                    {
+                        Debug.Log("Target is out!");
+                        label.text = "Target is out!";
+                    }
+                    if (gameObject.tag == "Head")
+                    {
+                        Debug.Log("Headshot! You are out!");
+                        label.text = "Headshot! You are out!";
+                    }
                 }
             }
         }
