@@ -2457,7 +2457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalLookSpeed: 120
-  verticalLookSpeed: 60
+  verticalLookSpeed: 80
 --- !u!81 &1210589890
 AudioListener:
   m_ObjectHideFlags: 0
