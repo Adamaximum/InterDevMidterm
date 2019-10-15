@@ -9,18 +9,29 @@ public class AIHitbox : MonoBehaviour
 
     public TextMeshProUGUI label;
 
+    [Header ("Camper In/Out")]
+    public bool camperOut;
+    public float disappearTimer = 5;
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-
+        
         label = GameObject.Find("Feed").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (camperOut)
+        {
+            disappearTimer -= Time.deltaTime;
+        }
+        if (disappearTimer <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,12 +40,13 @@ public class AIHitbox : MonoBehaviour
         {
             for (int i = 0; i < 6; i++)
             {
-                if (gm.live[i])
+                if (gm.lastHeldBy[i] == "Player")
                 {
                     if (gameObject.tag == "Body")
                     {
                         Debug.Log("Target is out!");
                         label.text = "Target is out!";
+                        camperOut = true;
                     }
                     if (gameObject.tag == "Head")
                     {

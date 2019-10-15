@@ -9,6 +9,7 @@ public class PickUpThrow : MonoBehaviour
 {
     public GameManager gm;
 
+    [Header ("Dodgeball Attributes")]
     public GameObject dodgeball;
 
     public bool held;
@@ -36,7 +37,7 @@ public class PickUpThrow : MonoBehaviour
 
         throwPow.text = "Throw Power: " + charge;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && dodgeball != null)
         {
             if (!held)
             {
@@ -60,7 +61,6 @@ public class PickUpThrow : MonoBehaviour
                 if (dodgeball.name == "Dodgeball (" + i + ")")
                 {
                     gm.lastHeldBy[i] = "Player";
-                    gm.live[i] = true;
                 }
             }
 

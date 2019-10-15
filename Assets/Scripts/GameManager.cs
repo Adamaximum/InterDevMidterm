@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public string[] lastHeldBy;
+    public int gameState;
+    // 0 = Start
+    // 1 = Game
+    // 2 = Game Over
 
-    public bool[] live;
+    public GameObject[] campers;
+
+    public string[] lastHeldBy;
     public bool[] onSide;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        campers[0] = GameObject.Find("LittleKid");
     }
 
     // Update is called once per frame
