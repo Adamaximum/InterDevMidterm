@@ -42,7 +42,10 @@ public class AIControl : MonoBehaviour
     {
         if (!hitbox.camperOut)
         {
-            AIPickUpThrow();
+            if (gm.gameState == 1)
+            {
+                AIPickUpThrow();
+            }
             AIMovement();
         }
         else
@@ -74,14 +77,14 @@ public class AIControl : MonoBehaviour
                     if (gm.onSide[i] == false && gm.lastHeldBy[i] == "None")
                     {
                         dodgeball = GameObject.Find("Dodgeball (" + i + ")").transform.gameObject;
+
+                        dodgeball.GetComponent<Rigidbody>().isKinematic = true;
+                        held = true;
+                        Debug.Log("Pick it up...");
+
+                        charge = Random.Range(chargeRandMin, chargeRandMax);
                     }
                 }
-
-                dodgeball.GetComponent<Rigidbody>().isKinematic = true;
-                held = true;
-                Debug.Log("Pick it up...");
-
-                charge = Random.Range(chargeRandMin, chargeRandMax);
             }
             else
             {

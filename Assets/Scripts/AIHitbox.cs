@@ -44,9 +44,10 @@ public class AIHitbox : MonoBehaviour
                 {
                     if (gameObject.tag == "Body")
                     {
-                        Debug.Log("Target is out!");
-                        label.text = "Target is out!";
+                        Debug.Log("Camper is out!");
+                        label.text = "Camper is out!";
                         camperOut = true;
+                        gm.campersLeft--;
                     }
                     if (gameObject.tag == "Head")
                     {

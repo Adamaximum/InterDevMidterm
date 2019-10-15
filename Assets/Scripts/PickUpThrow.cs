@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 // Credit goes to Frank for most of this code.
@@ -9,7 +8,7 @@ public class PickUpThrow : MonoBehaviour
 {
     public GameManager gm;
 
-    [Header ("Dodgeball Attributes")]
+    [Header ("Dodgeball Holding")]
     public GameObject dodgeball;
 
     public bool held;
@@ -17,6 +16,9 @@ public class PickUpThrow : MonoBehaviour
     public float heldDistX = -0.9f;
     public float heldDistY = 0.3f;
 
+    [Header("Dodgeball Charge")]
+    public int chargeMin = 100;
+    public int chargeMax = 1500;
     public int charge = 100;
 
     public TextMeshProUGUI throwPow;
@@ -30,11 +32,14 @@ public class PickUpThrow : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (gm.gameState == 1)
         {
-            SceneManager.LoadScene("SampleScene");
+            PickUpThrowAction();
         }
+    }
 
+    void PickUpThrowAction()
+    {
         throwPow.text = "Throw Power: " + charge;
 
         if (Input.GetKeyDown(KeyCode.E) && dodgeball != null)
@@ -55,8 +60,8 @@ public class PickUpThrow : MonoBehaviour
         {
             dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
             dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-            
-            for(int i = 0; i < 6; i++)
+
+            for (int i = 0; i < 6; i++)
             {
                 if (dodgeball.name == "Dodgeball (" + i + ")")
                 {
@@ -64,7 +69,7 @@ public class PickUpThrow : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButton(0) && charge < 700)
+            if (Input.GetMouseButton(0) && charge < chargeMax)
             {
                 charge += 5;
             }
@@ -75,11 +80,11 @@ public class PickUpThrow : MonoBehaviour
                 dodgeball.GetComponent<Rigidbody>().isKinematic = false;
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge);
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
-                charge = 100;
+                charge = chargeMin;
             }
         }
     }
-
+    
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Dodgeball" && !held)

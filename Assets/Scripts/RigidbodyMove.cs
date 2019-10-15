@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RigidbodyMove : MonoBehaviour
 {
+    GameManager gm;
+
     Rigidbody myRB;
     Vector3 myInput;
 
@@ -14,11 +16,21 @@ public class RigidbodyMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         myRB = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if (gm.gameState == 1)
+        {
+            MovementInput();
+        }
+    }
+
+    void MovementInput()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
