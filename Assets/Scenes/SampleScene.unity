@@ -2456,8 +2456,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1c82430f50696b4aa9b11a0e7377025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalLookSpeed: 10
-  verticalLookSpeed: 5
+  horizontalLookSpeed: 120
+  verticalLookSpeed: 60
 --- !u!81 &1210589890
 AudioListener:
   m_ObjectHideFlags: 0

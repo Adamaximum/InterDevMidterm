@@ -21,9 +21,9 @@ public class MouseLook : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        transform.parent.Rotate(0f, mouseX * horizontalLookSpeed, 0f);
+        transform.parent.Rotate(0f, mouseX * horizontalLookSpeed * Time.deltaTime, 0f);
 
-        verticalAngle -= mouseY * verticalLookSpeed;
+        verticalAngle -= mouseY * verticalLookSpeed * Time.deltaTime;
         verticalAngle = Mathf.Clamp(verticalAngle, -80f, 80f);
 
         transform.localEulerAngles = new Vector3(verticalAngle, transform.localEulerAngles.y, 0f);
