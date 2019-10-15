@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 42330489}
   - component: {fileID: 42330488}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: BorderRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -642,6 +642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  dodgeballCollider: {fileID: 0}
+  dividerCollider: {fileID: 0}
 --- !u!54 &209896659
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -979,6 +981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   IntroUI: {fileID: 0}
+  title: {fileID: 0}
+  subtitle: {fileID: 0}
   PlayerUI: {fileID: 0}
   campersRemaining: {fileID: 0}
   campersLeft: 3
@@ -1004,6 +1008,98 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &544468705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 544468706}
+  - component: {fileID: 544468709}
+  - component: {fileID: 544468708}
+  - component: {fileID: 544468707}
+  m_Layer: 0
+  m_Name: Divider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &544468706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544468705}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 2.55, z: 0.05}
+  m_LocalScale: {x: 1, y: 4.941, z: 24.118828}
+  m_Children: []
+  m_Father: {fileID: 791043797}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &544468707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544468705}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &544468708
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544468705}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &544468709
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544468705}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &552297582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1398,7 +1494,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press Space to Play
+  m_text: Press E to Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1467,7 +1563,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 657007940}
-    characterCount: 19
+    characterCount: 15
     spriteCount: 0
     spaceCount: 3
     wordCount: 4
@@ -1623,6 +1719,7 @@ Transform:
   - {fileID: 42330487}
   - {fileID: 876014604}
   - {fileID: 1245838142}
+  - {fileID: 544468706}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1639,7 +1736,7 @@ GameObject:
   - component: {fileID: 876014606}
   - component: {fileID: 876014605}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: BorderForward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1996,7 +2093,7 @@ MonoBehaviour:
   chargeRandMin: 300
   chargeRandMax: 700
   charge: 100
-  timerMax: 20
+  timerMax: 15
   pickUpTimer: 0
   decisionTime: 0
 --- !u!1 &963194225
@@ -2349,7 +2446,7 @@ GameObject:
   - component: {fileID: 1245838144}
   - component: {fileID: 1245838143}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: BorderBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2477,6 +2574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  dodgeballCollider: {fileID: 0}
+  dividerCollider: {fileID: 0}
 --- !u!54 &1294847854
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3305,9 +3404,10 @@ GameObject:
   - component: {fileID: 1493947376}
   - component: {fileID: 1493947375}
   - component: {fileID: 1493947379}
+  - component: {fileID: 1493947377}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3419,6 +3519,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1493947377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493947370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752bc8fb3b8819448b0b9d43a91dfdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
 --- !u!114 &1493947379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3489,6 +3602,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  dodgeballCollider: {fileID: 0}
+  dividerCollider: {fileID: 0}
 --- !u!54 &1585543868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3815,6 +3930,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  dodgeballCollider: {fileID: 0}
+  dividerCollider: {fileID: 0}
 --- !u!1 &1727378454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,6 +4017,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  dodgeballCollider: {fileID: 0}
+  dividerCollider: {fileID: 0}
 --- !u!54 &1730709706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4002,7 +4121,7 @@ GameObject:
   - component: {fileID: 1746625212}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4441,7 +4560,7 @@ GameObject:
   - component: {fileID: 1994678553}
   - component: {fileID: 1994678552}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: BorderLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4778,7 +4897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3791351122870055814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.21, y: 0.868, z: 4.48}
+  m_LocalPosition: {x: -3.21, y: 0.868, z: 4.85}
   m_LocalScale: {x: 0.3648344, y: 0.3648344, z: 0.3648344}
   m_Children: []
   m_Father: {fileID: 1727378455}
@@ -4848,3 +4967,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  dodgeballCollider: {fileID: 0}
+  dividerCollider: {fileID: 0}

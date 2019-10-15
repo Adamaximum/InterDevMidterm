@@ -46,6 +46,13 @@ public class AIControl : MonoBehaviour
             {
                 AIPickUpThrow();
             }
+            else
+            {
+                if (dodgeball != null)
+                {
+                    dodgeball.GetComponent<Rigidbody>().isKinematic = false;
+                }
+            }
             AIMovement();
         }
         else

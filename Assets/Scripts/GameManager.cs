@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerUI.enabled = false;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 gameState++;
             }

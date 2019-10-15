@@ -26,12 +26,13 @@ public class RigidbodyMove : MonoBehaviour
     {
         if (gm.gameState == 1)
         {
-            MovementInput();
+            speed = 10f;
         }
-    }
+        else
+        {
+            speed = 0f;
+        }
 
-    void MovementInput()
-    {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 

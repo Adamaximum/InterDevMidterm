@@ -36,6 +36,13 @@ public class PickUpThrow : MonoBehaviour
         {
             PickUpThrowAction();
         }
+        else if (gm.gameState == 2)
+        {
+            if (dodgeball != null)
+            {
+                dodgeball.GetComponent<Rigidbody>().isKinematic = false;
+            }
+        }
     }
 
     void PickUpThrowAction()

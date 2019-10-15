@@ -6,10 +6,16 @@ public class DodgeballTracking : MonoBehaviour
 {
     public GameManager gm;
 
+    public SphereCollider dodgeballCollider;
+    public BoxCollider dividerCollider;
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        dodgeballCollider = GetComponent<SphereCollider>();
+        dividerCollider = GameObject.Find("Divider").GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -29,6 +35,8 @@ public class DodgeballTracking : MonoBehaviour
                 }
             }
         }
+
+        Physics.IgnoreCollision(dodgeballCollider, dividerCollider);
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -36,11 +36,11 @@ public class AIHitbox : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Dodgeball")
+        for (int i = 0; i < 6; i++)
         {
-            for (int i = 0; i < 6; i++)
+            if (collision.gameObject.name == "Dodgeball (" + i + ")")
             {
-                if (gm.lastHeldBy[i] == "Player" && camperOut == false)
+                if (gm.lastHeldBy[i] == "Player" && camperOut == false && gm.gameState == 1)
                 {
                     if (gameObject.tag == "Body")
                     {
@@ -53,6 +53,8 @@ public class AIHitbox : MonoBehaviour
                     {
                         Debug.Log("Headshot! You are out!");
                         label.text = "Headshot! You are out!";
+
+                        gm.gameState = 2;
                     }
                 }
             }
