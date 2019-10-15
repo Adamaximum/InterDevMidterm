@@ -31,6 +31,8 @@ public class AIHitbox : MonoBehaviour
         if (disappearTimer <= 0)
         {
             gameObject.SetActive(false);
+
+            label.text = "";
         }
     }
 

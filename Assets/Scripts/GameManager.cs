@@ -6,19 +6,22 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [Header ("Game Management")]
+    [Header ("Game Management Variables")]
     public int gameState;
     // 0 = Start
     // 1 = Game
     // 2 = Game Over
 
+    public int campersLeft;
+
+    [Header ("Items to be Used")]
     public Canvas IntroUI;
     public TextMeshProUGUI title;
     public TextMeshProUGUI subtitle;
 
     public Canvas PlayerUI;
     public TextMeshProUGUI campersRemaining;
-    public int campersLeft;
+    public GameObject reticle;
 
     [Header ("Dodgeball Stats")]
     public string[] lastHeldBy;
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
 
         PlayerUI = GameObject.Find("PlayerUI").GetComponent<Canvas>();
         campersRemaining = GameObject.Find("CampersRemaining").GetComponent<TextMeshProUGUI>();
+        reticle = GameObject.Find("Reticle");
     }
 
     // Update is called once per frame
@@ -68,6 +72,8 @@ public class GameManager : MonoBehaviour
         {
             IntroUI.enabled = true;
             subtitle.text = "Press R to Restart";
+
+            reticle.SetActive(false);
 
             if (campersLeft == 0)
             {

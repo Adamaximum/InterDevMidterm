@@ -39,7 +39,7 @@ public class RigidbodyMove : MonoBehaviour
         myInput = horizontal * transform.right;
         myInput += vertical * transform.forward;
 
-        if (Input.GetKeyDown(KeyCode.Space) && grounded == true)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded == true && gm.gameState == 1)
         {
             myRB.AddForce(Vector3.up * 5, ForceMode.Impulse);
             grounded = false;
