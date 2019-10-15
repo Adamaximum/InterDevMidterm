@@ -8,6 +8,11 @@ public class AIControl : MonoBehaviour
     public AIHitbox hitbox;
     public Transform playerTR;
 
+    [Header ("AI Movement")]
+    public bool reverse;
+    public float movementSpeed;
+    float movementInput;
+
     [Header ("Dodgeball Holding")]
     public GameObject dodgeball;
 
@@ -108,6 +113,49 @@ public class AIControl : MonoBehaviour
 
     void AIMovement()
     {
+        if (gameObject.name == "MediumKid")
+        {
+            transform.position += new Vector3(0f, 0f, movementInput);
 
+            if (transform.position.z >= 14)
+            {
+                reverse = true;
+            }
+            else if (transform.position.z <= 1)
+            {
+                reverse = false;
+            }
+
+            if (reverse)
+            {
+                movementInput = -movementSpeed;
+            }
+            else if (!reverse)
+            {
+                movementInput = movementSpeed;
+            }
+        }
+        else if (gameObject.name == "BigKid")
+        {
+            transform.position += new Vector3(movementInput, 0f, 0f);
+
+            if (transform.position.x >= 10)
+            {
+                reverse = true;
+            }
+            else if (transform.position.x <= -9.6f)
+            {
+                reverse = false;
+            }
+
+            if (reverse)
+            {
+                movementInput = -movementSpeed;
+            }
+            else
+            {
+                movementInput = movementSpeed;
+            }
+        }
     }
 }

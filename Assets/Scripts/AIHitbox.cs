@@ -40,7 +40,7 @@ public class AIHitbox : MonoBehaviour
         {
             for (int i = 0; i < 6; i++)
             {
-                if (gm.lastHeldBy[i] == "Player")
+                if (gm.lastHeldBy[i] == "Player" && camperOut == false)
                 {
                     if (gameObject.tag == "Body")
                     {
