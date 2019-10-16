@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 // Credit goes to Frank for most of this code.
 public class PickUpThrow : MonoBehaviour
 {
     public GameManager gm;
+
+    public Camera cam;
 
     [Header ("Dodgeball Holding")]
     public GameObject dodgeball;
@@ -22,12 +25,15 @@ public class PickUpThrow : MonoBehaviour
     public int charge = 100;
 
     public TextMeshProUGUI throwPow;
+    public Image throwMeter;
 
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        cam = GetComponentInChildren<Camera>();
 
         throwPow = GameObject.Find("ThrowPower").GetComponent<TextMeshProUGUI>();
+        throwMeter = GameObject.Find("ThrowMeter").GetComponent<Image>();
     }
 
     void Update()
@@ -78,7 +84,8 @@ public class PickUpThrow : MonoBehaviour
 
             if (Input.GetMouseButton(0) && charge < chargeMax)
             {
-                charge += 5;
+                charge += 14;
+                throwMeter.fillAmount += 0.01f;
             }
 
             if (Input.GetMouseButtonUp(0))
@@ -88,6 +95,7 @@ public class PickUpThrow : MonoBehaviour
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge);
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
                 charge = chargeMin;
+                throwMeter.fillAmount = 0;
             }
         }
     }
