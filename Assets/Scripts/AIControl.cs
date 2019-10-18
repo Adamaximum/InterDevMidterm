@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class AIControl : MonoBehaviour
 {
     public GameManager gm;
     public AIHitbox hitbox;
     public Transform playerTR;
+
+    public TextMeshProUGUI feed;
 
     [Header ("AI Movement")]
     public bool reverse;
@@ -36,6 +39,9 @@ public class AIControl : MonoBehaviour
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         hitbox = GetComponent<AIHitbox>();
         playerTR = GameObject.Find("Player").GetComponent<Transform>();
+
+        feed = GetComponentInChildren<TextMeshProUGUI>();
+        feed.text = "";
     }
 
     void Update()
@@ -74,6 +80,27 @@ public class AIControl : MonoBehaviour
             decisionTime = Random.Range(1, Mathf.RoundToInt(timerMax));
         }
 
+        if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 4 && held)
+        {
+            feed.text = ".";
+        }
+        else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 3 && held)
+        {
+            feed.text = "..";
+        }
+        else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 2 && held)
+        {
+            feed.text = "...";
+        }
+        else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 1 && held)
+        {
+            feed.text = "!";
+        }
+        else
+        {
+            feed.text = "";
+        }
+
         if (Mathf.RoundToInt(pickUpTimer) == decisionTime)
         {
             pickUpTimer = 0;
@@ -102,6 +129,8 @@ public class AIControl : MonoBehaviour
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
 
                 dodgeball = null;
+
+                feed.text = "!";
             }
         }
 
