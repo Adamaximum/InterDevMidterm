@@ -84,8 +84,8 @@ public class PickUpThrow : MonoBehaviour
 
             if (Input.GetMouseButton(0) && charge < chargeMax)
             {
-                charge += 14;
-                throwMeter.fillAmount += 0.01f;
+                charge += 5;
+                throwMeter.fillAmount += 0.004f;
             }
 
             if (Input.GetMouseButtonUp(0))
