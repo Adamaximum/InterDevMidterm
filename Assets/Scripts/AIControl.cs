@@ -9,6 +9,7 @@ public class AIControl : MonoBehaviour
     public AIHitbox hitbox;
     public Transform playerTR;
 
+    public Canvas enemyUI;
     public TextMeshProUGUI feed;
 
     [Header ("AI Movement")]
@@ -40,12 +41,15 @@ public class AIControl : MonoBehaviour
         hitbox = GetComponent<AIHitbox>();
         playerTR = GameObject.Find("Player").GetComponent<Transform>();
 
+        enemyUI = GetComponentInChildren<Canvas>();
         feed = GetComponentInChildren<TextMeshProUGUI>();
         feed.text = "";
     }
 
     void Update()
     {
+        enemyUI.transform.LookAt(playerTR);
+
         if (!hitbox.camperOut)
         {
             if (gm.gameState == 1)
@@ -129,15 +133,12 @@ public class AIControl : MonoBehaviour
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
 
                 dodgeball = null;
-
-                feed.text = "!";
             }
         }
 
         if (held)
         {
             dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
-            //dodgeball.transform.eulerAngles = new Vector3(0, playerTR.localEulerAngles.y + 180, 0);
             dodgeball.transform.LookAt(playerTR);
 
             for (int i = 0; i < 6; i++)
