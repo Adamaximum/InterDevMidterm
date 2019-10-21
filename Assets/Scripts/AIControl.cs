@@ -17,6 +17,11 @@ public class AIControl : MonoBehaviour
     public float movementSpeed;
     float movementInput;
 
+    public int movementType;
+    // 0 = No Movement
+    // 1 = Vertical (Z)
+    // 2 = Horizontal (X)
+
     [Header ("Dodgeball Holding")]
     public GameObject dodgeball;
 
@@ -136,7 +141,7 @@ public class AIControl : MonoBehaviour
 
     void AIMovement()
     {
-        if (gameObject.name == "MediumKid")
+        if (movementType == 1) // Vert (Z) Movement
         {
             transform.position += new Vector3(0f, 0f, movementInput);
 
@@ -158,7 +163,7 @@ public class AIControl : MonoBehaviour
                 movementInput = movementSpeed;
             }
         }
-        else if (gameObject.name == "BigKid")
+        else if (movementType == 2) // Horiz (X) Movement
         {
             transform.position += new Vector3(movementInput, 0f, 0f);
 
@@ -179,6 +184,15 @@ public class AIControl : MonoBehaviour
             {
                 movementInput = movementSpeed;
             }
+        }
+
+        if (gameObject.name == "MediumKid")
+        {
+            
+        }
+        else if (gameObject.name == "BigKid")
+        {
+            
         }
     }
 
