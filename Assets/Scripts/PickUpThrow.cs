@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-// Credit goes to Frank for most of this code.
+// Credit goes to Frank for much of this code.
 public class PickUpThrow : MonoBehaviour
 {
     public GameManager gm;

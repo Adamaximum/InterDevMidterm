@@ -6,6 +6,8 @@ public class DodgeballTracking : MonoBehaviour
 {
     public GameManager gm;
 
+    public TrailRenderer trail;
+
     public SphereCollider dodgeballCollider;
     public BoxCollider dividerCollider;
 
@@ -13,6 +15,8 @@ public class DodgeballTracking : MonoBehaviour
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        trail = GetComponent<TrailRenderer>();
 
         dodgeballCollider = GetComponent<SphereCollider>();
         dividerCollider = GameObject.Find("Divider").GetComponent<BoxCollider>();
@@ -32,6 +36,15 @@ public class DodgeballTracking : MonoBehaviour
                 else
                 {
                     gm.onSide[i] = false;
+                }
+
+                if (gm.lastHeldBy[i] == "None")
+                {
+                    trail.emitting = false;
+                }
+                else
+                {
+                    trail.emitting = true;
                 }
             }
         }
