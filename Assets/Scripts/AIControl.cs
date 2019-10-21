@@ -211,14 +211,16 @@ public class AIControl : MonoBehaviour
             }
             else
             {
-                feed.text = ":(";
+                feed.text = "):";
+                //enemyUI.transform.localEulerAngles = new Vector3(0f, 0f, -90f);
             }
         }
         if (gm.gameState == 2)
         {
             if (gm.campersLeft > 0)
             {
-                feed.text = ":)";
+                feed.text = "(:";
+                //enemyUI.transform.localEulerAngles = new Vector3(0f, 0f, -90f);
             }
         }
     }
