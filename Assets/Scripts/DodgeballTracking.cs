@@ -42,10 +42,6 @@ public class DodgeballTracking : MonoBehaviour
                 {
                     trail.emitting = false;
                 }
-                else
-                {
-                    trail.emitting = true;
-                }
             }
         }
 

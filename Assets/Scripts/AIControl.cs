@@ -50,6 +50,8 @@ public class AIControl : MonoBehaviour
     {
         enemyUI.transform.LookAt(playerTR);
 
+        UIControl();
+
         if (!hitbox.camperOut)
         {
             if (gm.gameState == 1)
@@ -84,27 +86,6 @@ public class AIControl : MonoBehaviour
             decisionTime = Random.Range(1, Mathf.RoundToInt(timerMax));
         }
 
-        if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 4 && held)
-        {
-            feed.text = ".";
-        }
-        else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 3 && held)
-        {
-            feed.text = "..";
-        }
-        else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 2 && held)
-        {
-            feed.text = "...";
-        }
-        else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 1 && held)
-        {
-            feed.text = "!";
-        }
-        else
-        {
-            feed.text = "";
-        }
-
         if (Mathf.RoundToInt(pickUpTimer) == decisionTime)
         {
             pickUpTimer = 0;
@@ -131,6 +112,8 @@ public class AIControl : MonoBehaviour
                 dodgeball.GetComponent<Rigidbody>().isKinematic = false;
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * charge);
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
+
+                dodgeball.GetComponent<TrailRenderer>().emitting = true;
 
                 dodgeball = null;
             }
@@ -195,6 +178,47 @@ public class AIControl : MonoBehaviour
             else
             {
                 movementInput = movementSpeed;
+            }
+        }
+    }
+
+    void UIControl()
+    {
+        if (gm.gameState == 1)
+        {
+            if (!hitbox.camperOut)
+            {
+                if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 4 && held)
+                {
+                    feed.text = ".";
+                }
+                else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 3 && held)
+                {
+                    feed.text = "..";
+                }
+                else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 2 && held)
+                {
+                    feed.text = "...";
+                }
+                else if (Mathf.RoundToInt(pickUpTimer) == decisionTime + 1 && held)
+                {
+                    feed.text = "!";
+                }
+                else
+                {
+                    feed.text = "";
+                }
+            }
+            else
+            {
+                feed.text = ":(";
+            }
+        }
+        if (gm.gameState == 2)
+        {
+            if (gm.campersLeft > 0)
+            {
+                feed.text = ":)";
             }
         }
     }

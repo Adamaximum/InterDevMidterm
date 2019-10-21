@@ -96,6 +96,8 @@ public class PickUpThrow : MonoBehaviour
                 dodgeball.GetComponent<Rigidbody>().AddRelativeForce(Vector3.up * 100);
                 charge = chargeMin;
                 throwMeter.fillAmount = 0;
+
+                dodgeball.GetComponent<TrailRenderer>().emitting = true;
             }
         }
     }
