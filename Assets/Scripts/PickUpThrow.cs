@@ -66,6 +66,7 @@ public class PickUpThrow : MonoBehaviour
             {
                 dodgeball.GetComponent<Rigidbody>().isKinematic = false;
                 held = false;
+                charge = chargeMin;
             }
         }
 

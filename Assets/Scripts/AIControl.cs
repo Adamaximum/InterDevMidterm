@@ -21,6 +21,7 @@ public class AIControl : MonoBehaviour
     // 0 = No Movement
     // 1 = Vertical (Z)
     // 2 = Horizontal (X)
+    public bool randomize;
 
     [Header ("Dodgeball Holding")]
     public GameObject dodgeball;
@@ -49,6 +50,11 @@ public class AIControl : MonoBehaviour
         enemyUI = GetComponentInChildren<Canvas>();
         feed = GetComponentInChildren<TextMeshProUGUI>();
         feed.text = "";
+
+        if (randomize)
+        {
+            movementType = Random.Range(1, Mathf.RoundToInt(3));
+        }
     }
 
     void Update()

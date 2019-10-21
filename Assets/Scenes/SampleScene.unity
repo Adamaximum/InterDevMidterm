@@ -5829,6 +5829,7 @@ MonoBehaviour:
   reverse: 0
   movementSpeed: 0.01
   movementType: 2
+  randomize: 1
   dodgeball: {fileID: 0}
   held: 0
   heldDistX: 0
@@ -7187,6 +7188,7 @@ MonoBehaviour:
   reverse: 0
   movementSpeed: 0
   movementType: 0
+  randomize: 0
   dodgeball: {fileID: 0}
   held: 0
   heldDistX: 0
@@ -10947,6 +10949,7 @@ MonoBehaviour:
   reverse: 0
   movementSpeed: 0.03
   movementType: 2
+  randomize: 0
   dodgeball: {fileID: 0}
   held: 0
   heldDistX: 0
@@ -11504,8 +11507,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433035921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -69.76, y: 0.03, z: -94.36}
-  m_LocalScale: {x: 11.811373, y: 7.1783814, z: 1.5595895}
+  m_LocalPosition: {x: -69.678, y: 0.03, z: -94.4}
+  m_LocalScale: {x: 11.811337, y: 7.1783814, z: 1.5439936}
   m_Children: []
   m_Father: {fileID: 103977096}
   m_RootOrder: 9
@@ -11836,6 +11839,7 @@ MonoBehaviour:
   reverse: 1
   movementSpeed: 0.07
   movementType: 1
+  randomize: 1
   dodgeball: {fileID: 0}
   held: 0
   heldDistX: 0
@@ -13077,6 +13081,7 @@ MonoBehaviour:
   reverse: 0
   movementSpeed: 0.08
   movementType: 2
+  randomize: 1
   dodgeball: {fileID: 0}
   held: 0
   heldDistX: 0
@@ -16598,6 +16603,7 @@ MonoBehaviour:
   reverse: 0
   movementSpeed: 0.05
   movementType: 1
+  randomize: 0
   dodgeball: {fileID: 0}
   held: 0
   heldDistX: 0
