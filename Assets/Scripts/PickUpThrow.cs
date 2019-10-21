@@ -67,6 +67,7 @@ public class PickUpThrow : MonoBehaviour
                 dodgeball.GetComponent<Rigidbody>().isKinematic = false;
                 held = false;
                 charge = chargeMin;
+                throwMeter.fillAmount = 0;
             }
         }
 
@@ -85,8 +86,8 @@ public class PickUpThrow : MonoBehaviour
 
             if (Input.GetMouseButton(0) && charge < chargeMax)
             {
-                charge += 5;
-                throwMeter.fillAmount += 0.004f;
+                charge += 10;
+                throwMeter.fillAmount += 0.008f;
             }
 
             if (Input.GetMouseButtonUp(0))

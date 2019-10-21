@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerHitbox : MonoBehaviour
 {
     public GameManager gm;
 
+    public TextMeshProUGUI label;
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        label = GameObject.Find("Feed").GetComponent<TextMeshProUGUI>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -23,6 +28,7 @@ public class PlayerHitbox : MonoBehaviour
                     if (gameObject.tag == "Body")
                     {
                         gm.gameState = 2;
+                        label.text = "Clean hit! You are out!";
                     }
                     if (gameObject.tag == "Head")
                     {
