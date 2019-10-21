@@ -102,7 +102,7 @@ public class AIControl : MonoBehaviour
             pickUpTimer = 0;
             if (!held)
             {
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < gm.lastHeldBy.Length; i++)
                 {
                     if (gm.onSide[i] == false && gm.lastHeldBy[i] == "None")
                     {
@@ -135,7 +135,7 @@ public class AIControl : MonoBehaviour
             dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
             dodgeball.transform.LookAt(playerTR);
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < gm.lastHeldBy.Length; i++)
             {
                 if (dodgeball.name == "Dodgeball (" + i + ")")
                 {
@@ -191,15 +191,6 @@ public class AIControl : MonoBehaviour
                 movementInput = movementSpeed;
             }
         }
-
-        if (gameObject.name == "MediumKid")
-        {
-            
-        }
-        else if (gameObject.name == "BigKid")
-        {
-            
-        }
     }
 
     void UIControl()
@@ -232,7 +223,6 @@ public class AIControl : MonoBehaviour
             else
             {
                 feed.text = "):";
-                //enemyUI.transform.localEulerAngles = new Vector3(0f, 0f, -90f);
             }
         }
         if (gm.gameState == 2)
@@ -240,7 +230,6 @@ public class AIControl : MonoBehaviour
             if (gm.campersLeft > 0)
             {
                 feed.text = "(:";
-                //enemyUI.transform.localEulerAngles = new Vector3(0f, 0f, -90f);
             }
         }
     }

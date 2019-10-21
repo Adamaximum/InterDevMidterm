@@ -25,7 +25,7 @@ public class DodgeballTracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < gm.lastHeldBy.Length; i++)
         {
             if (gameObject.name == "Dodgeball (" + i + ")")
             {
@@ -52,7 +52,7 @@ public class DodgeballTracking : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < gm.lastHeldBy.Length; i++)
             {
                 if (gameObject.name == "Dodgeball (" + i + ")")
                 {

@@ -75,7 +75,7 @@ public class PickUpThrow : MonoBehaviour
             dodgeball.transform.position = gameObject.transform.position + new Vector3(heldDistX, heldDistY, 0);
             dodgeball.transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < gm.lastHeldBy.Length; i++)
             {
                 if (dodgeball.name == "Dodgeball (" + i + ")")
                 {

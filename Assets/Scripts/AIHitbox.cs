@@ -38,7 +38,7 @@ public class AIHitbox : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < gm.lastHeldBy.Length; i++)
         {
             if (collision.gameObject.name == "Dodgeball (" + i + ")")
             {
