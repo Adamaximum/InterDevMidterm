@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public Canvas PlayerUI;
     public TextMeshProUGUI campersRemaining;
     public GameObject reticle;
+    public GameObject throwMeter;
 
     [Header ("Dodgeball Stats")]
     public string[] lastHeldBy;
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
         PlayerUI = GameObject.Find("PlayerUI").GetComponent<Canvas>();
         campersRemaining = GameObject.Find("CampersRemaining").GetComponent<TextMeshProUGUI>();
         reticle = GameObject.Find("Reticle");
+        throwMeter = GameObject.Find("ThrowMeter");
     }
 
     // Update is called once per frame
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
             subtitle.text = "Press R to Restart";
 
             reticle.SetActive(false);
+            throwMeter.SetActive(false);
 
             if (campersLeft == 0)
             {
